@@ -13,8 +13,8 @@ protocol CallAccessGrant{
 }
 
 
- final class GAlert {
-    static let sharedInstance = GAlert()
+ final class GData {
+    static let sharedInstance = GData()
 
     
 
@@ -33,7 +33,7 @@ protocol CallAccessGrant{
     
     func FetchImageDataFromLibrary(){
         let fetchOptions = PHFetchOptions()
-        GAlert.sharedInstance.ImagesForView = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+        GData.sharedInstance.ImagesForView = PHAsset.fetchAssets(with: .image, options: fetchOptions)
     }
    
     

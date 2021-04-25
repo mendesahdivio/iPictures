@@ -41,12 +41,14 @@ class ImagePreviewViewController: UIViewController {
     
     
     @IBAction func EditButtonClicked(_ sender: UIButton) {
-        
-      let Controller =  ChangeViewController(SendingviewController: self, identifier: "EditorViewController") as? EditorViewController
-        
-        Controller?.editingImageView.image = rawImageAssest?.image(contentMode: .aspectFit)
-        Controller?.ImageAssetAsPhasset = rawImageAssest
-       
+        DispatchQueue.main.async{ [self] in
+            let Controller =  self.ChangeViewController(SendingviewController: self, identifier: "EditorViewController") as? EditorViewController
+              
+            Controller?.editingImageView.image = rawImageAssest?.image(contentMode: .aspectFit)
+            Controller?.ImageAssetAsPhasset = rawImageAssest
+             
+        }
+     
     }
     
 

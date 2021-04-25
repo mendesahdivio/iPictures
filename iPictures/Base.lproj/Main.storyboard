@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -50,8 +51,8 @@
                                             <constraint firstAttribute="height" constant="40" id="QSn-Bs-Ekv"/>
                                             <constraint firstAttribute="width" constant="200" id="oBM-rB-q9G"/>
                                         </constraints>
-                                        <state key="normal" title="  Folders">
-                                            <imageReference key="image" image="folder.fill" catalog="system" symbolScale="medium" renderingMode="original"/>
+                                        <state key="normal" title="  About Me">
+                                            <imageReference key="image" image="info.circle" catalog="system" symbolScale="medium" renderingMode="original"/>
                                         </state>
                                         <connections>
                                             <action selector="ButtonsClickedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aOo-wY-ezI"/>
@@ -153,15 +154,13 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="X4L-IF-Ewu">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AuR-pM-OmD">
-                                                <rect key="frame" x="235" y="0.0" width="159" height="44"/>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="k8v-ag-xhf">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="o9K-OX-zzg">
+                                                <rect key="frame" x="302" y="7" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Edit" image="pencil" catalog="system">
-                                                    <color key="titleColor" systemColor="linkColor"/>
-                                                </state>
+                                                <state key="normal" title="Edit"/>
                                                 <connections>
-                                                    <action selector="EditButtonClicked:" destination="fzk-Xk-Kud" eventType="touchUpInside" id="cav-kR-VDP"/>
+                                                    <action selector="EditButtonClicked:" destination="fzk-Xk-Kud" eventType="touchUpInside" id="QIo-Ei-aF8"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -196,7 +195,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backToView" destination="D8p-Wd-0H5" id="CTe-mt-FAy"/>
-                        <outlet property="editButton" destination="AuR-pM-OmD" id="nJS-GX-1uD"/>
+                        <outlet property="editButton" destination="o9K-OX-zzg" id="67P-F2-t2K"/>
                         <outlet property="fullScreenImagePreview" destination="Plq-LP-gJg" id="IAj-2D-rbV"/>
                     </connections>
                 </viewController>
@@ -246,7 +245,7 @@
                                 </items>
                             </navigationBar>
                             <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="56j-8N-9A7">
-                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem title="Vertical Flip" image="square.righthalf.fill" catalog="system" id="dPH-SV-4cj"/>
@@ -289,7 +288,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoR-vc-gmd">
-                                <rect key="frame" x="44.5" y="691" width="325" height="54"/>
+                                <rect key="frame" x="44.5" y="725" width="325" height="54"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ws7-Qt-nvJ">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="54"/>
@@ -425,18 +424,13 @@
         <image name="AppLogo" width="500" height="500"/>
         <image name="crop" catalog="system" width="128" height="116"/>
         <image name="flip.horizontal.fill" catalog="system" width="128" height="112"/>
-        <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="photo.fill.on.rectangle.fill" catalog="system" width="128" height="96"/>
         <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="square.righthalf.fill" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

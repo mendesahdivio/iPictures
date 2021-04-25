@@ -14,8 +14,7 @@
 		8F06BCA626308606007C8CD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F06BCA426308606007C8CD0 /* LaunchScreen.storyboard */; };
 		8F06BCB126308606007C8CD0 /* iPicturesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F06BCB026308606007C8CD0 /* iPicturesTests.swift */; };
 		8F06BCBC26308606007C8CD0 /* iPicturesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F06BCBB26308606007C8CD0 /* iPicturesUITests.swift */; };
-		8F06BCDF2631C0DB007C8CD0 /* ImageModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F06BCDE2631C0DB007C8CD0 /* ImageModal.swift */; };
-		8F06BCFD263269C5007C8CD0 /* GlobalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F06BCFC263269C5007C8CD0 /* GlobalAlert.swift */; };
+		8F06BCFD263269C5007C8CD0 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F06BCFC263269C5007C8CD0 /* GlobalData.swift */; };
 		8F06BD072633BC86007C8CD0 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F06BD062633BC86007C8CD0 /* ImageCollectionViewCell.swift */; };
 		8F06BD102633D8E8007C8CD0 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F06BD0F2633D8E8007C8CD0 /* ImagePreviewViewController.swift */; };
 		8F29CA5E26342FA900837584 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F29CA5D26342FA900837584 /* EditorViewController.swift */; };
@@ -55,8 +54,7 @@
 		8F06BCB726308606007C8CD0 /* iPicturesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPicturesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F06BCBB26308606007C8CD0 /* iPicturesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPicturesUITests.swift; sourceTree = "<group>"; };
 		8F06BCBD26308606007C8CD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8F06BCDE2631C0DB007C8CD0 /* ImageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModal.swift; sourceTree = "<group>"; };
-		8F06BCFC263269C5007C8CD0 /* GlobalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAlert.swift; sourceTree = "<group>"; };
+		8F06BCFC263269C5007C8CD0 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		8F06BD062633BC86007C8CD0 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		8F06BD0F2633D8E8007C8CD0 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
 		8F29CA5D26342FA900837584 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 				8F06BD0B2633D2B3007C8CD0 /* imageEditorMainView */,
 				8F06BCFB2632692A007C8CD0 /* GlobalAlert */,
 				8F06BCF22631DACB007C8CD0 /* tableCells */,
-				8F06BCDD2631BFDE007C8CD0 /* ImageModal */,
 				8F06BC9926308602007C8CD0 /* AppDelegate.swift */,
 				8F06BC9B26308602007C8CD0 /* SceneDelegate.swift */,
 				8F06BC9F26308602007C8CD0 /* Main.storyboard */,
@@ -146,14 +143,6 @@
 			path = iPicturesUITests;
 			sourceTree = "<group>";
 		};
-		8F06BCDD2631BFDE007C8CD0 /* ImageModal */ = {
-			isa = PBXGroup;
-			children = (
-				8F06BCDE2631C0DB007C8CD0 /* ImageModal.swift */,
-			);
-			path = ImageModal;
-			sourceTree = "<group>";
-		};
 		8F06BCF22631DACB007C8CD0 /* tableCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +154,7 @@
 		8F06BCFB2632692A007C8CD0 /* GlobalAlert */ = {
 			isa = PBXGroup;
 			children = (
-				8F06BCFC263269C5007C8CD0 /* GlobalAlert.swift */,
+				8F06BCFC263269C5007C8CD0 /* GlobalData.swift */,
 			);
 			path = GlobalAlert;
 			sourceTree = "<group>";
@@ -322,13 +311,12 @@
 				8F06BC9A26308602007C8CD0 /* AppDelegate.swift in Sources */,
 				8F06BC9C26308602007C8CD0 /* SceneDelegate.swift in Sources */,
 				8FD8BDEF26351C8F0001427E /* ViewController.swift in Sources */,
-				8F06BCFD263269C5007C8CD0 /* GlobalAlert.swift in Sources */,
+				8F06BCFD263269C5007C8CD0 /* GlobalData.swift in Sources */,
 				8FD8BDFC26351D210001427E /* ImageCollectionViewController.swift in Sources */,
 				8F06BD072633BC86007C8CD0 /* ImageCollectionViewCell.swift in Sources */,
 				8F29CA5E26342FA900837584 /* EditorViewController.swift in Sources */,
 				8FD8BDF726351CF40001427E /* GalleryTabBarViewController.swift in Sources */,
 				8F06BD102633D8E8007C8CD0 /* ImagePreviewViewController.swift in Sources */,
-				8F06BCDF2631C0DB007C8CD0 /* ImageModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

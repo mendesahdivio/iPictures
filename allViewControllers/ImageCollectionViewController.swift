@@ -10,7 +10,7 @@ import UIKit
 private let reuseIdentifier = "ImageCellForCollection"
 
 class ImageCollectionViewController: UICollectionViewController{
-let values = GAlert()
+let values = GData()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ let values = GAlert()
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        guard let count = GAlert.sharedInstance.ImagesForView?.count else{
+        guard let count = GData.sharedInstance.ImagesForView?.count else{
             return 0
         }
         return count
@@ -69,7 +69,7 @@ let values = GAlert()
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageCollectionViewCell
     
-        cell.ImageViewForCollection.image = GAlert.sharedInstance.ImagesForView?[indexPath.row].getAssetThumbnail(isImage: false)
+        cell.ImageViewForCollection.image = GData.sharedInstance.ImagesForView?[indexPath.row].getAssetThumbnail(isImage: false)
         return cell
     }
     
@@ -128,7 +128,7 @@ let values = GAlert()
     private func SetValuesForImageCall(index:IndexPath)->UIImage{
         let Image:UIImage?
         
-        Image =  GAlert.sharedInstance.ImagesForView?[index.row].image(contentMode: .aspectFit)
+        Image =  GData.sharedInstance.ImagesForView?[index.row].image(contentMode: .aspectFit)
         return Image!
     }
     
@@ -144,7 +144,7 @@ let values = GAlert()
                       return
                   }
                   
-                  Controller?.rawImageAssest = GAlert.sharedInstance.ImagesForView?[indexPath.row]
+                  Controller?.rawImageAssest = GData.sharedInstance.ImagesForView?[indexPath.row]
                 Controller?.fullScreenImagePreview.image = self.SetValuesForImageCall(index:indexPath)
             }
            
@@ -160,7 +160,7 @@ let values = GAlert()
                       return
                   }
                   
-                  Controller?.ImageAssetAsPhasset = GAlert.sharedInstance.ImagesForView?[indexPath.row]
+                  Controller?.ImageAssetAsPhasset = GData.sharedInstance.ImagesForView?[indexPath.row]
                 Controller?.editingImageView.image = self.SetValuesForImageCall(index:indexPath)
             }
           

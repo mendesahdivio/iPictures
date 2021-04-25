@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 class EditorViewController: UIViewController,UITabBarDelegate,UIScrollViewDelegate {
-    let alert = GAlert()
+    let alert = GData()
     var ImageAssetAsPhasset:PHAsset?
     private var isvFlipped:Bool = false
     private var isHFlipped:Bool = false

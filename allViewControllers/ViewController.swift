@@ -22,7 +22,7 @@ class ViewController: UIViewController ,CallAccessGrant{
         constructorForViewDefaultValues()
         guard UserDefaults.standard.value(forKey: "GrantAccess") == nil else{
             let fetchOptions = PHFetchOptions()
-            GAlert.sharedInstance.ImagesForView = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+            GData.sharedInstance.ImagesForView = PHAsset.fetchAssets(with: .image, options: fetchOptions)
             changeView(viewNumeber:0)
             return
         }
@@ -82,7 +82,7 @@ class ViewController: UIViewController ,CallAccessGrant{
             case .authorized,.limited:
                 print("Good to proceed")
                
-                GAlert.sharedInstance.ImagesForView = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+                GData.sharedInstance.ImagesForView = PHAsset.fetchAssets(with: .image, options: fetchOptions)
                 UserDefaults.standard.setValue("AccessGranted", forKey: "GrantAccess")
             case .notDetermined:
                 DispatchQueue.main.async {
@@ -96,7 +96,7 @@ class ViewController: UIViewController ,CallAccessGrant{
                 }
                 
             case .restricted:
-                GAlert.sharedInstance.ImagesForView = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+                GData.sharedInstance.ImagesForView = PHAsset.fetchAssets(with: .image, options: fetchOptions)
                 UserDefaults.standard.setValue("AccessGranted", forKey: "GrantAccess")
             
             @unknown default:
@@ -105,6 +105,7 @@ class ViewController: UIViewController ,CallAccessGrant{
             }
         })
     }
+    
     
     
     
