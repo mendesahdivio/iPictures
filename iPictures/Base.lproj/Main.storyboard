@@ -245,7 +245,7 @@
                                 </items>
                             </navigationBar>
                             <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="56j-8N-9A7">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem title="Vertical Flip" image="square.righthalf.fill" catalog="system" id="dPH-SV-4cj"/>
@@ -288,7 +288,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoR-vc-gmd">
-                                <rect key="frame" x="44.5" y="725" width="325" height="54"/>
+                                <rect key="frame" x="44.5" y="691" width="325" height="54"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ws7-Qt-nvJ">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="54"/>
