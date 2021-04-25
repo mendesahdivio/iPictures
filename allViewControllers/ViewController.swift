@@ -12,7 +12,7 @@ class ViewController: UIViewController ,CallAccessGrant{
     func CallAccessFunc() {
         AccessGrantForPhotoLibrary()
     }
-    
+  
     var allPhotos : PHFetchResult<PHAsset>? = nil
     @IBOutlet weak var galleryBttn: UIButton!
     @IBOutlet weak var viewAllFolderBttn: UIButton!
@@ -52,7 +52,7 @@ class ViewController: UIViewController ,CallAccessGrant{
             changeView(viewNumeber:0)
             break
         case 1:
-            changeView(viewNumeber:1)
+            GData.infoAlert(view: self)
             break
         default:
             print("Unable to get button tag value")

@@ -50,6 +50,15 @@ protocol CallAccessGrant{
     }
     
     
+   static func infoAlert(view:UIViewController){
+        
+            let alertController = UIAlertController(title: "iPictures", message: "Welcome to my application called iPictures where on giving access to you photos library you can then edit the image rotation and aspect ratio and save the resulting image", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler:nil)
+            alertController.addAction(OKAction)
+        view.present(alertController, animated: true, completion: nil)
+    }
+    
+    
     
     
 //     func AccessGrantForPhotoLibrary(viewController:UIViewController){

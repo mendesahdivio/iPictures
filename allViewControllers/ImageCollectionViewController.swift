@@ -10,7 +10,7 @@ import UIKit
 private let reuseIdentifier = "ImageCellForCollection"
 
 class ImageCollectionViewController: UICollectionViewController{
-let values = GData()
+    let values = GData()
    
     override func viewDidLoad() {
         super.viewDidLoad()

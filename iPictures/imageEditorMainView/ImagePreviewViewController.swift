@@ -9,6 +9,7 @@ import UIKit
 import Photos
 class ImagePreviewViewController: UIViewController {
 
+    @IBOutlet weak var navigationBarForView: UINavigationBar!
     @IBOutlet weak var backToView: UIButton!
     var rawImageAssest: PHAsset?
     
@@ -20,6 +21,14 @@ class ImagePreviewViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        guard rawImageAssest == nil else {
+            self.navigationBarForView.topItem?.title = rawImageAssest?.creationDate?.timeIntervalSinceReferenceDate.debugDescription
+            self.navigationBarForView.topItem?.prompt =
+                rawImageAssest?.localIdentifier
+            return
+        }
+        self.navigationBarForView.topItem?.title = ""
+        
     }
     
 

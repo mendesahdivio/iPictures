@@ -64,11 +64,11 @@ class EditorViewController: UIViewController,UITabBarDelegate,UIScrollViewDelega
 //        Image.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         if !isVerticallyFlipped{
             self.editingImageView.layer.transform = CATransform3DMakeScale(1, -1, 1)
-            self.RetrunModifiedCGIImage(outPutuiImage:&(modifiedImageOfOrientation)!,orientation:.downMirrored)
+            self.RetrunModifiedCGIImage(outPutuiImage:&(modifiedImageOfOrientation),orientation:.downMirrored)
             isVerticallyFlipped = true
         } else{
             self.editingImageView.layer.transform = CATransform3DMakeScale(1, 1, -1)
-            self.RetrunModifiedCGIImage(outPutuiImage:&(modifiedImageOfOrientation)!,orientation:.upMirrored)
+            self.RetrunModifiedCGIImage(outPutuiImage:&(modifiedImageOfOrientation),orientation:.upMirrored)
             isVerticallyFlipped = false
         }
     
@@ -81,11 +81,11 @@ class EditorViewController: UIViewController,UITabBarDelegate,UIScrollViewDelega
         self.editingImageView.layer.transform = CATransform3DMakeScale(-1, 1, 1)
        
         
-        self.RetrunModifiedCGIImage(outPutuiImage:&(modifiedImageOfOrientation)!,orientation:.leftMirrored)
+        self.RetrunModifiedCGIImage(outPutuiImage:&(modifiedImageOfOrientation),orientation:.leftMirrored)
         IsHFliped = true
     }else{
         self.editingImageView.layer.transform = CATransform3DMakeScale(1, 1, 1)
-        self.RetrunModifiedCGIImage(outPutuiImage:&(modifiedImageOfOrientation)!,orientation:.rightMirrored)
+        self.RetrunModifiedCGIImage(outPutuiImage:&(modifiedImageOfOrientation),orientation:.rightMirrored)
         IsHFliped = false
     }
     }
@@ -195,7 +195,11 @@ class EditorViewController: UIViewController,UITabBarDelegate,UIScrollViewDelega
     }
     
     func writeToPhotoAlbum(image: UIImage) {
-            UIImageWriteToSavedPhotosAlbum(image, self, #selector(errorOfSavingImage), nil)
+        
+        
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.errorOfSavingImage), nil)
+        
+           
         }
     
     
@@ -242,7 +246,7 @@ extension UIImage {
 
 
 extension EditorViewController {
-    func RetrunModifiedCGIImage(outPutuiImage:inout UIImage,orientation:UIImage.Orientation){
+    func RetrunModifiedCGIImage(outPutuiImage:inout UIImage?,orientation:UIImage.Orientation){
         
         outPutuiImage = UIImage(cgImage: self.editingImageView.image!.cgImage!, scale: self.editingImageView.image! .scale, orientation: orientation)
     }
