@@ -13,11 +13,23 @@ protocol CallAccessGrant{
 }
 
 
+
+
+
+
+
+
  final class GData {
+    
+    
     static let sharedInstance = GData()
 
+   
+   
     
-
+   
+    
+     var ArrayOfStructPhotos:[Photos]? = nil
     
     private var allPhotos : PHFetchResult<PHAsset>? = nil
     
@@ -34,6 +46,8 @@ protocol CallAccessGrant{
     func FetchImageDataFromLibrary(){
         let fetchOptions = PHFetchOptions()
         GData.sharedInstance.ImagesForView = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+       
+        
     }
    
     

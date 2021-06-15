@@ -9,9 +9,9 @@ import UIKit
 
 private let reuseIdentifier = "ImageCellForCollection"
 
-class ImageCollectionViewController: UICollectionViewController{
+class ImageCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout{
     let values = GData()
-   
+    var ImageData:[ImageDataForDisplay]? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +45,7 @@ class ImageCollectionViewController: UICollectionViewController{
     private func FetchData(){
         DispatchQueue.main.async {
             self.values.FetchImageDataFromLibrary()
+            self.ImageData =   CoreDataManager.sharedInstance.FetchRequest()
             self.collectionView?.reloadData()
         }
         
@@ -60,7 +61,7 @@ class ImageCollectionViewController: UICollectionViewController{
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        guard let count = GData.sharedInstance.ImagesForView?.count else{
+        guard let count = ImageData?.count else{
             return 0
         }
         return count
@@ -68,8 +69,14 @@ class ImageCollectionViewController: UICollectionViewController{
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageCollectionViewCell
+        let data = ConvertStringToData(ImageStringUrl: ImageData![indexPath.row].imageData!)
     
-        cell.ImageViewForCollection.image = GData.sharedInstance.ImagesForView?[indexPath.row].getAssetThumbnail(isImage: false)
+        cell.ImageViewForCollection.image = UIImage(data: data!)
+        if ImageData![indexPath.row].isFavourite{
+            cell.ImageViewForCollection.layer.borderWidth = 4
+            cell.ImageViewForCollection.layer.borderColor = CGColor.init(red: 0.5, green: 0.7, blue: 0.5, alpha: 1)
+            
+        }
         return cell
     }
     
@@ -109,7 +116,18 @@ class ImageCollectionViewController: UICollectionViewController{
     }
     */
 
+     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = collectionView.frame.width/3-1
+        return CGSize(width: size, height: size)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1.0
+    }
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
         return false
@@ -127,8 +145,10 @@ class ImageCollectionViewController: UICollectionViewController{
     
     private func SetValuesForImageCall(index:IndexPath)->UIImage{
         let Image:UIImage?
+        let url = URL(string: (ImageData?[index.row].imageData!)!)
+        Image = UIImage(data: try!Data(contentsOf: url!))
         
-        Image =  GData.sharedInstance.ImagesForView?[index.row].image(contentMode: .aspectFit)
+//        Image =  GData.sharedInstance.ImagesForView?[index.row].image(contentMode: .aspectFit)
         return Image!
     }
     
@@ -144,7 +164,8 @@ class ImageCollectionViewController: UICollectionViewController{
                       return
                   }
                   
-                  Controller?.rawImageAssest = GData.sharedInstance.ImagesForView?[indexPath.row]
+                 // Controller?.rawImageAssest = GData.sharedInstance.ImagesForView?[indexPath.row]
+                Controller?.rawImageAssest = self.ImageData?[indexPath.row].imageData
                 Controller?.fullScreenImagePreview.image = self.SetValuesForImageCall(index:indexPath)
             }
            
@@ -167,13 +188,44 @@ class ImageCollectionViewController: UICollectionViewController{
             
         })
         
+        let Likeaction = UIAlertAction(title: "Add to favourite", style: .default, handler: {(action) in
+           
+            CoreDataManager.sharedInstance.InsertUpdateForSpecificImage(isFav: true, ImageData: self.ImageData![indexPath.row].imageData!)
+            try?CoreDataManager.sharedInstance.saveContext()
+            
+            DispatchQueue.main.async {
+                self.FetchData()
+            }
+            
+            
+           
+           
+            
+        })
+        
         let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         
         alertController.addAction(OpenAction)
         alertController.addAction(editAction)
+        alertController.addAction(Likeaction)
         alertController.addAction(cancleAction)
+        
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    
+    private func ConvertStringToData(ImageStringUrl:String)->Data?{
+        guard let ImageUrl = URL(string:ImageStringUrl) else {
+            return nil
+        }
+        
+        guard let data = try? Data(contentsOf: ImageUrl) else {
+            return nil
+        }
+        
+        return data
     }
     
 

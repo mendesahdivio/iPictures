@@ -83,6 +83,28 @@ class ViewController: UIViewController ,CallAccessGrant{
                 print("Good to proceed")
                
                 GData.sharedInstance.ImagesForView = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+                
+                let count =  GData.sharedInstance.ImagesForView?.count
+                
+                for loop in 0...count!-1{
+                    var defiingurl:URL? = nil
+                    _ = GData.sharedInstance.ImagesForView?[loop].getURL(){
+                        url  in
+                        defiingurl = url
+                        
+                        guard let ImageUrl = defiingurl?.absoluteString else {
+                            return
+                        }
+                        //GData.sharedInstance.ImagesForView?[loop].getAssetThumbnail(isImage: false).pngData()
+                        CoreDataManager.sharedInstance.SaveData(imageData:ImageUrl , isFavourite: false)
+                    }
+                    
+                  
+                    try?CoreDataManager.sharedInstance.saveContext()
+//                    GData.sharedInstance.ArrayOfStructPhotos?.append(data)
+                }
+                
+                
                 UserDefaults.standard.setValue("AccessGranted", forKey: "GrantAccess")
             case .notDetermined:
                 DispatchQueue.main.async {
@@ -196,8 +218,25 @@ extension PHAsset {
     
     
     
-   
+    func getURL(completionHandler : @escaping ((_ responseURL : URL?) -> Void)){
+            if self.mediaType == .image {
+                let options: PHContentEditingInputRequestOptions = PHContentEditingInputRequestOptions()
+                options.canHandleAdjustmentData = {(adjustmeta: PHAdjustmentData) -> Bool in
+                    return true
+                }
+                self.requestContentEditingInput(with: options, completionHandler: {(contentEditingInput: PHContentEditingInput?, info: [AnyHashable : Any]) -> Void in
+                    completionHandler(contentEditingInput!.fullSizeImageURL as URL?)
+                })
+            }
+        }
 
 
 }
 
+public struct Photos{
+   var Catigories:String?
+   var ImageData:UIImage?
+   var isFavourite:Bool?
+   
+   
+}

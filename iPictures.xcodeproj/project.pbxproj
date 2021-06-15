@@ -21,6 +21,10 @@
 		8FD8BDEF26351C8F0001427E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8BDEE26351C8F0001427E /* ViewController.swift */; };
 		8FD8BDF726351CF40001427E /* GalleryTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8BDF626351CF40001427E /* GalleryTabBarViewController.swift */; };
 		8FD8BDFC26351D210001427E /* ImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8BDFB26351D210001427E /* ImageCollectionViewController.swift */; };
+		8FFC4FBF26776DCE0037DF87 /* ImageDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FFC4FBD26776DCD0037DF87 /* ImageDataModel.xcdatamodeld */; };
+		8FFC4FC1267770A20037DF87 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFC4FC0267770A20037DF87 /* CoreDataManager.swift */; };
+		8FFC4FC4267774280037DF87 /* ImageDataForDisplay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFC4FC2267774280037DF87 /* ImageDataForDisplay+CoreDataClass.swift */; };
+		8FFC4FC5267774280037DF87 /* ImageDataForDisplay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFC4FC3267774280037DF87 /* ImageDataForDisplay+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		8FD8BDEE26351C8F0001427E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8FD8BDF626351CF40001427E /* GalleryTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTabBarViewController.swift; sourceTree = "<group>"; };
 		8FD8BDFB26351D210001427E /* ImageCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewController.swift; sourceTree = "<group>"; };
+		8FFC4FBE26776DCE0037DF87 /* ImageDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImageDataModel.xcdatamodel; sourceTree = "<group>"; };
+		8FFC4FC0267770A20037DF87 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		8FFC4FC2267774280037DF87 /* ImageDataForDisplay+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ImageDataForDisplay+CoreDataClass.swift"; path = "iPictures/ImageDataForDisplay+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8FFC4FC3267774280037DF87 /* ImageDataForDisplay+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ImageDataForDisplay+CoreDataProperties.swift"; path = "iPictures/ImageDataForDisplay+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,8 @@
 		8F06BC8D26308602007C8CD0 = {
 			isa = PBXGroup;
 			children = (
+				8FFC4FC2267774280037DF87 /* ImageDataForDisplay+CoreDataClass.swift */,
+				8FFC4FC3267774280037DF87 /* ImageDataForDisplay+CoreDataProperties.swift */,
 				8FD8BDED26351C550001427E /* allViewControllers */,
 				8F06BC9826308602007C8CD0 /* iPictures */,
 				8F06BCAF26308606007C8CD0 /* iPicturesTests */,
@@ -155,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				8F06BCFC263269C5007C8CD0 /* GlobalData.swift */,
+				8FFC4FBD26776DCD0037DF87 /* ImageDataModel.xcdatamodeld */,
+				8FFC4FC0267770A20037DF87 /* CoreDataManager.swift */,
 			);
 			path = GlobalAlert;
 			sourceTree = "<group>";
@@ -316,7 +328,11 @@
 				8F06BD072633BC86007C8CD0 /* ImageCollectionViewCell.swift in Sources */,
 				8F29CA5E26342FA900837584 /* EditorViewController.swift in Sources */,
 				8FD8BDF726351CF40001427E /* GalleryTabBarViewController.swift in Sources */,
+				8FFC4FC4267774280037DF87 /* ImageDataForDisplay+CoreDataClass.swift in Sources */,
+				8FFC4FC5267774280037DF87 /* ImageDataForDisplay+CoreDataProperties.swift in Sources */,
 				8F06BD102633D8E8007C8CD0 /* ImagePreviewViewController.swift in Sources */,
+				8FFC4FBF26776DCE0037DF87 /* ImageDataModel.xcdatamodeld in Sources */,
+				8FFC4FC1267770A20037DF87 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +667,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8FFC4FBD26776DCD0037DF87 /* ImageDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8FFC4FBE26776DCE0037DF87 /* ImageDataModel.xcdatamodel */,
+			);
+			currentVersion = 8FFC4FBE26776DCE0037DF87 /* ImageDataModel.xcdatamodel */;
+			path = ImageDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8F06BC8E26308602007C8CD0 /* Project object */;
 }

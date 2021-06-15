@@ -20,14 +20,45 @@ class iPicturesTests: XCTestCase {
 
     func testExample() throws {
         // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // Use XCTAssert and related functions to verify your tests produce the correct results
+        
+        func genericfunc<T:Numeric>(a:T,b:T)->T{
+        let sum = a + b
+        return sum
+    }
+        
+        
+        let data:(Int) -> (Int) = { num in
+            genericfunc(a: num, b: num)
+           }
+        
+     let a = data(2)
+       
+     
+        
+       
+    }
+    
+    
+    func testStoreData(){
+        let data = GData()
+        data.FetchImageDataFromLibrary()
+       print(data.ImageAndDiscritption)
+        if data.ImageAndDiscritption.ImageData != nil {
+            XCTAssert(true,data.ImageAndDiscritption.Catigories!)
+        } else{
+            XCTAssert(false)
+        }
     }
 
     func testPerformanceExample() throws {
-        // This is an example of a performance test case.
+        // This is an example of a performance test cas
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    
+ 
 
 }

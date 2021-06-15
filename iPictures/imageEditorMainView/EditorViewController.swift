@@ -165,7 +165,7 @@ class EditorViewController: UIViewController,UITabBarDelegate,UIScrollViewDelega
         
     }
    
-    
+  
     
     
     private func changingImageRatio(ratio:CGFloat){

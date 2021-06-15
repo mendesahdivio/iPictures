@@ -11,7 +11,7 @@ class ImagePreviewViewController: UIViewController {
 
     @IBOutlet weak var navigationBarForView: UINavigationBar!
     @IBOutlet weak var backToView: UIButton!
-    var rawImageAssest: PHAsset?
+    var rawImageAssest: String?
     
     @IBOutlet weak var editButton: UIButton!
     
@@ -21,12 +21,12 @@ class ImagePreviewViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        guard rawImageAssest == nil else {
-            self.navigationBarForView.topItem?.title = rawImageAssest?.creationDate?.timeIntervalSinceReferenceDate.debugDescription
-            self.navigationBarForView.topItem?.prompt =
-                rawImageAssest?.localIdentifier
-            return
-        }
+//        guard rawImageAssest == nil else {
+//            self.navigationBarForView.topItem?.title = rawImageAssest?.creationDate?.timeIntervalSinceReferenceDate.debugDescription
+//            self.navigationBarForView.topItem?.prompt =
+//                rawImageAssest?.localIdentifier
+//            return
+//        }
         self.navigationBarForView.topItem?.title = ""
         
     }
@@ -52,9 +52,12 @@ class ImagePreviewViewController: UIViewController {
     @IBAction func EditButtonClicked(_ sender: UIButton) {
         DispatchQueue.main.async{ [self] in
             let Controller =  self.ChangeViewController(SendingviewController: self, identifier: "EditorViewController") as? EditorViewController
-              
-            Controller?.editingImageView.image = rawImageAssest?.image(contentMode: .aspectFit)
-            Controller?.ImageAssetAsPhasset = rawImageAssest
+            let dataURl = URL(string:rawImageAssest!)
+           let  data = try? Data(contentsOf: dataURl!)
+            
+            Controller?.editingImageView.image = UIImage(data: data!)
+            
+          //  Controller?.ImageAssetAsPhasset = rawImageAssest
              
         }
      
